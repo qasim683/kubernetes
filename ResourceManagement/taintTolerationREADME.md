@@ -42,3 +42,9 @@ added must be equal to node taint values so in that case node tolerate the pod
 	    operator: "Equal"
 	    value: "blue"
 	    effect: "NoSchedule"
+
+
+if you want to remove taint form the node
+
+	$ kubectl taint nodes node01 app=blue:NoSchdelue-
+
