@@ -159,3 +159,4 @@ name under persistenvolumeclaim section in the volumes section like this:
               persistentVolumeClaim:
                 claimName: myclaim
               
+	for more help you can visit https://kubernetes.io/docs/concepts/storage/persistent-volumes/#claims-as-volumes
