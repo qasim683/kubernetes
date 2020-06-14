@@ -134,3 +134,28 @@ in this case pvc delete when we delete pvc...
 	persistenVolumeReclaimPolicy: Recycle
 
 data in the data volume will be  sucrupt making it available to other claims 
+
+
+
+
+------------------------------------------------------------------
+
+once you create a PVC use it in a Pod defination yaml file by specifying the pvc claim
+name under persistenvolumeclaim section in the volumes section like this:
+
+	apiVersion: v1
+	kind: Pod
+	metadata:
+	  name: mypod
+	spec:
+	  containers:
+	    - name: myfrontend
+	      image: nginx
+              volumeMounts:
+              - mountPath: "/var/www/html"
+                name: my-vol
+          volumes:
+	    - name: my-vol
+              persistentVolumeClaim:
+                claimName: myclaim
+              
