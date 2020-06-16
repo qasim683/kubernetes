@@ -1,10 +1,10 @@
-apiVersion: apps/v1
-kind: Pod
-metadta:
+master $ cat wp-deploy.yaml
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
   name: wordpress
   labels:
-    app: wordpress
-    tier: frontend
+    app: wordpress    tier: frontend
 spec:
   replicas: 2
   selector:
@@ -28,15 +28,14 @@ spec:
           valueFrom:
             secretKeyRef:
               name: mysql-pass
-              key: password
-        ports:
+              key: password        ports:
         - containerPort: 80
           name: wordpress
         volumeMounts:
         - name: wordpress-persistent-storage
           mountPath: "/var/www/html"
-    volume:
-    - name: wordpress-persistent-storage
-      persistentVolumeClaim:
-        claimName: wordpress-persistent-storage
+      volumes:
+      - name: wordpress-persistent-storage
+        persistentVolumeClaim:
+          claimName: wordpress-persistent-storage
 
