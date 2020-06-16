@@ -8,7 +8,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: db      
+      app: db
   template:
     metadata:
       labels:
@@ -18,8 +18,7 @@ spec:
       - name: mysql
         image: mysql:5.7
         env:
-        - name: MYSQL_ROOT_PASSWORD
-          valueFrom:
+        - name: MYSQL_ROOT_PASSWORD          valueFrom:
             secretKeyRef:
               name: mysql-pass
               key: password
@@ -32,4 +31,4 @@ spec:
       volumes:
       - name: mysql-persistent-storage
         persistentVolumeClaim:
-          claimName: mysql-persistent-storage 
+          claimName: mysql-persistent-storage
