@@ -4,7 +4,8 @@ kind: Deployment
 metadata:
   name: wordpress
   labels:
-    app: wordpress    tier: frontend
+    app: wordpress
+    tier: frontend
 spec:
   replicas: 2
   selector:
