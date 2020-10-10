@@ -46,5 +46,35 @@ you can allow all privileged
 
  $ docker run --privileged ubuntu
 
+--------------------------------------------------------------
+you can define when creating pod 
 
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+spec:
+  containers:
+  - name: my-nginx-pod
+    image: nginx
+    securityContext:
+      runAsUser: 0
+      capabilities:
+        add: ["SYS_ADMIN"]
+ 
+if you wish to add on all containers in one go define after spec section
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+spec:
+  securityContext:
+    runAsUser: 0
+    capabilities:
+      add: ["SYS_ADMIN"]
+  containers:
+  - name: my-nginx-pod
+    image: nginx
 
