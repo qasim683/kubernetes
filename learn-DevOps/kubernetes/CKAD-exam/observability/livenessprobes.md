@@ -59,7 +59,7 @@ exec
 livenessProbe:
   exec:
     command:
-      cat
+    - cat
     - /api/is_ready
   initialDelaySeconds: 10
   periodSeconds: 5
