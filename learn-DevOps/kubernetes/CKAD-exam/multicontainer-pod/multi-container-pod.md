@@ -41,3 +41,6 @@ spec:
   - name: app-code
     hostPath: /data
 --------------------------------
+
+adapter:
+  adapter container is need 
