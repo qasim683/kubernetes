@@ -128,6 +128,9 @@ so we can create it ingress with rules with following yaml
 	kind: Ingress
 	metadata:
 	  name: ingress-wear-watch
+	  annotations:
+            nginx.ingress.kubernetes.io/rewrite-target: /
+            nginx.ingress.kubernetes.io/ssl-redirect: "false"
 	spec:
 	  rules:
 	  - http:
